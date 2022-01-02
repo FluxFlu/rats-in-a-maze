@@ -200,12 +200,14 @@ while (cheese.cheeses.length < 25)
 
 ctx.fillStyle = "#2a2a2a";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
+let turns = 0;
 setInterval(() => {
+    turns++;
     ctx.fillStyle = "#2a2a2a";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     cheese.update();
     wall.walls.forEach(r => r.update());
     rat.rats.forEach(r => r.update());
     cheese.cheeses.forEach(r => r.update());
-    document.getElementById("counter").innerHTML = `Number of rats: ${rat.rats.length}<br><br>Number of blocks of cheese: ${cheese.cheeses.length}`;
+    document.getElementById("counter").innerHTML = `Number of rats: ${rat.rats.length}<br><br>Number of blocks of cheese: ${cheese.cheeses.length}<br><br>Turn number: ${turns}`;
 }, 300);
